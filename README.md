@@ -1,1 +1,1 @@
-# Ejercicio-1-Sistema-Integral-de-Gesti-n-de-Clientes-Servicios-y-Reservas
+# Ejercicio-1-Sistema-Integral-de-Gestion-de-Clientes-Servicios-y-Reservas
