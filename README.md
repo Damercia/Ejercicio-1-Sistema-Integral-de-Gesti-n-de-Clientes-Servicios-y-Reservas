@@ -1,1 +1,1 @@
-# Ejercicio-1-Sistema-Integral-de-Gestion-de-Clientes-Servicios-y-Reservas
+| Karol Ximena Rodriguez | @Damercia | EntidadBase + Cliente + main.py + 10 simulaciones + logs 
