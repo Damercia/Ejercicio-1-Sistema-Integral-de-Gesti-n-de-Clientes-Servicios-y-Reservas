@@ -1,17 +1,22 @@
-"""Excepciones personalizadas del sistema."""
+"""Excepciones personalizadas del sistema.
+Todas heredan de una clase base comun: SistemaError."""
 
-class DatoInvalidoError(Exception):
-    """Se lanza cuando un dato de entrada no es valido."""
+class SistemaError(Exception):
+    """Clase base comun para todas las excepciones del sistema."""
     pass
 
-class ServicioNoDisponibleError(Exception):
-    """Se lanza cuando se intenta usar un servicio no disponible."""
+class DatoInvalidoError(SistemaError):
+    """Dato de entrada no valido."""
     pass
 
-class ReservaIncorrectaError(Exception):
-    """Se lanza cuando una reserva tiene parametros incorrectos."""
+class ServicioNoDisponibleError(SistemaError):
+    """Servicio no disponible."""
     pass
 
-class OperacionNoPermitidaError(Exception):
-    """Se lanza cuando se intenta una operacion no permitida."""
+class ReservaIncorrectaError(SistemaError):
+    """Reserva con parametros incorrectos."""
+    pass
+
+class OperacionNoPermitidaError(SistemaError):
+    """Operacion no permitida."""
     pass
