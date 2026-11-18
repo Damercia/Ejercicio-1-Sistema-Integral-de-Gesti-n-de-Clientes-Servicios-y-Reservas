@@ -1,4 +1,4 @@
-from entidad_base import EntidadBase
+from excepciones_personalizadas import DatoInvalidoError
 import re
 
 class Cliente(EntidadBase):
@@ -18,9 +18,9 @@ class Cliente(EntidadBase):
     def nombre(self, valor: str) -> None:
         nombre_limpio = valor.strip()
         if len(nombre_limpio) < 3:
-            raise ValueError("El nombre debe tener al menos 3 caracteres.")
+            raise DatoInvalidoError("El nombre debe tener al menos 3 caracteres.")
         if not re.match(r"^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$", nombre_limpio):
-            raise ValueError("El nombre solo puede contener letras y espacios.")
+            raise DatoInvalidoError("El nombre solo puede contener letras y espacios.")
         self._nombre = nombre_limpio
 
     @property
@@ -32,7 +32,7 @@ class Cliente(EntidadBase):
         correo_limpio = valor.strip().lower()
         patron = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
         if not re.fullmatch(patron, correo_limpio):
-            raise ValueError("El correo electronico tiene un formato invalido.")
+            raise DatoInvalidoError("El correo electronico tiene un formato invalido.")
         self._correo = correo_limpio
 
     @property
@@ -43,7 +43,7 @@ class Cliente(EntidadBase):
     def telefono(self, valor: str) -> None:
         tel_limpio = re.sub(r"\D", "", valor)
         if len(tel_limpio) < 7 or len(tel_limpio) > 15:
-            raise ValueError("El teléfono debe tener entre 7 y 15 digitos.")
+            raise DatoInvalidoError("El teléfono debe tener entre 7 y 15 digitos.")
         self._telefono = tel_limpio
 
     def validar_datos(self) -> bool:
